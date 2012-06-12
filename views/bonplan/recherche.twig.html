@@ -1,0 +1,61 @@
+{% extends 'layout.twig.html' %}
+
+{% block slogan %}
+<p class="title">Rechercher un bon plan</p>
+{% endblock %}
+
+{% block content %}
+<form id="form_bonplan" class="well clearfix" style="margin: auto; width:41%; min-width:260px; ">
+	<!-- @todo action + method sur form -->
+    <div class="control-group">
+        <label class="control-label ajouter_label" for="select01">Catégories</label>
+        <div class="controls" >
+            <select id="select01" style="width:100%; max-width: 275px;  ">
+                <option></option>
+                <option>Loisirs</option>
+                <option>Restaurants</option>
+                <option>Soirées</option>
+                <option>Se déplacer</option>
+                <option>Bien être</option>
+                <option>Shopping</option>
+                <option>Cadeau</option>
+                <option>Vie Pratique</option>
+            </select>
+        </div>
+    </div>
+    <div class="form_ligne clearfix">
+        <label>Date</label>
+        <input style="max-width: 266px; width: 100%;" type="text" class="span3" placeholder="Type something…" />
+    </div>
+
+    <div class="form_ligne clearfix">
+        <label>Lieu</label>
+        <input style="max-width: 266px; width: 100%;" type="text" class="span3" placeholder="Type something…" />
+    </div>
+    <div class="form_ligne clearfix">
+        <label>Prix</label>
+        <input style="max-width: 266px; width: 100%;" type="text" class="span3" placeholder="Type something…" />
+    </div>
+    <button type="submit" class="btn gradient">Rechercher</button>
+</form>
+{% endblock %}
+
+{% block subcontent %}
+<div class="hero-unit">
+    <div class="container-fluid">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <div class="nav">
+                        <ul class="nav clearfix" id="content_footer" style="max-width: 230px;"> 
+                            <li class="bt_footer"><a href="{{ path('home') }}"><img src="/images/ico_home.jpg" style="width: 100%;max-width: 80px;"/></a></li>
+                            <li class="bt_footer"><a href="favories.php"><img src="/images/ico_fav.jpg" style="width: 100%;max-width: 80px;"/></a></li>
+                            <!-- @todo href sur favoris -->
+                        </ul>
+                    </div>  
+                </div> <!--container-->
+            </div>   
+        </div>  
+    </div> 
+</div>
+{% endblock %}
