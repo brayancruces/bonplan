@@ -1,0 +1,366 @@
+/*  CSS COMMUN ------------------------------------------------------------------*/
+@font-face {
+	font-family: 'king_cool_kc';
+	src: url('../fonts/king_cool_kc/King-Cool-KC.ttf') format('truetype'); 
+	}
+        
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('../fonts/bebas_neue/BebasNeue-webfont.eot') format('embedded-opentype'),
+         url('../fonts/bebas_neue/BebasNeue-webfont.woff') format('woff'),
+         url('../fonts/bebas_neue/BebasNeue-webfont.ttf') format('truetype'),
+         url('../fonts/bebas_neue/BebasNeue-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+        
+body{
+    padding: 0;
+    margin: 0;
+    background: #ffe38e;
+}
+
+.container-fluid{
+    margin: auto;
+    max-width: 960px;
+}
+
+/*      HOME ------------------------------------------------------------------*/
+
+#content .bloc_cat{
+    float: left;
+    margin: 10px 0;
+    max-width: 217px;
+    width: 50%;
+}
+
+#content_ico{
+    margin: auto;
+    max-width: 711px;
+}
+
+.ico{
+    max-width: 200px;
+    max-height: 200px;
+    z-index: -1;
+    width: 90%;
+}
+
+.title{
+    position: relative;
+    z-index: 2;
+}
+
+.cat{
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+#home_bloc{
+    margin: auto;
+}
+
+#slogan{
+    background: none repeat scroll 0 0 #FF9A57;
+    margin: auto;
+    padding: 16px 0;
+    position: relative;
+    box-shadow: 0 2px 2px rgba(34,34,34,0.5);
+}
+
+#slogan p{
+    text-align: center;
+    font-family: "king_cool_kc";
+    font-size: 22px;
+    margin: 0;
+}
+
+#slogan p.title{
+    text-transform: uppercase;
+    font-family: "BebasNeueRegular";
+    color: #fff;
+    font-size: 39px;
+    text-shadow: 1px 0 1px rgba(0, 0, 0, 0.3);
+}
+
+#slogan p span{
+    font-size: 32px;
+}
+
+#slogan #img_left{
+    left: 0;
+    max-width: 25px;
+    position: absolute;
+    top: -46%;
+    width: 10%;
+}
+#slogan #img_right{
+    max-width: 22px;
+    position: absolute;
+    right: 0;
+    top: 1%;
+    width: 7%;
+}
+
+#content{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    margin: 24px 10px 10px;
+    padding: 10px;
+}
+/*    formulaires ajouter / rechercher un bon plan  ------------------------------------------------------------------*/
+
+#form_bonplan label{
+    width: 100px;
+    float: left;
+    padding-top: 9px;
+    font-family: "BebasNeueRegular";
+    font-size: 18px;
+}
+
+.form_ligne{
+    clear: left;
+    margin: 15px 0
+}
+
+.form_ligne input{
+    float: left;
+    margin: 0;
+    height: 25px;
+}
+
+#form_bonplan textarea{
+    min-height: 80px;
+    width: 97%;
+    min-width: 252px;
+}
+#form_bonplan button{
+    color: #FFFFFF;
+    float: right;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    padding: 10px 26px;
+    text-shadow: 0 0 1px #000000;
+    margin-top: 9px;
+}
+
+input, select, textarea{
+    background: #fefdce;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+
+/*    FOOTER ----------------------------------------------------------------- */
+#content_footer{
+    margin: auto;
+    max-width: 376px;
+    text-align: center;
+    padding-left: 11px;
+}
+
+.bt_footer{
+    float: left;
+    margin: 0 5%;
+    max-width: 80px;
+    width: 34%;
+}
+
+
+.hero-unit p{
+    border-radius: 6px 6px 6px 6px;
+    font-family: arial;
+    font-size: 14px;
+    padding: 1%;
+    color: #fff;
+}
+.detailcategories p{
+    color: #000;
+}
+.detailcategories .description_cat{
+    clear: left;
+    color: #2F81E7;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.img_bonplan{
+    float: left;
+    margin-right: 20px;
+}
+
+.description_bonplan{
+    float: left;
+    min-width: 308px;
+    padding: 0;
+    text-align: justify;
+    width: 65%;
+}
+
+
+
+
+
+.gradient {
+	/* Anciens navigateurs */
+	-o-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	/* Internet Explorer */
+	*background: #246dc8;
+	background: #246dc8\0/;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="gradient-bg.png", sizingMethod="scale");
+	}
+	@media all and (min-width: 0px) {
+		.gradient {
+			/* Opera */
+			/* Navigateurs récents */
+			background-image: -webkit-gradient(
+				linear,
+				left top, left bottom,
+				from(#246dc8),
+				to(#246dc8),
+		color-stop(0.86, #1553a0)
+			);
+			background-image: -webkit-linear-gradient(
+				top,
+				#246dc8,
+				#1553a0 86%,
+		#246dc8
+			);
+			background-image: -moz-linear-gradient(
+				top,
+				#246dc8,
+				#1553a0 86%,
+		#246dc8
+			);
+			background-image: -o-linear-gradient(
+				top,
+				#246dc8,
+				#1553a0 86%,
+		#246dc8
+			);
+			background-image: linear-gradient(
+				top,
+				#246dc8,
+				#1553a0 86%,
+		#246dc8
+			);
+		}
+	}
+        
+/*        bon plan liste-------------------------------------------------------*/
+.hero-unit p.tag_cat{
+    background: none repeat scroll 0 0 #FEE08B;
+    border-radius: 5px 5px 5px 5px;
+    color: #CA5E21;
+    float: right;
+    font-family: "king_cool_kc";
+    font-size: 22px;
+    margin-right: 10px;
+    margin-top: -5px;
+    padding: 7px 15px;
+}
+
+.date{
+    color: #FDDC87;
+    display: block;
+    float: left;
+    font-family: "BebasNeueRegular";
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.lieu{
+    color: #FDDC87;
+    float: left;
+    font-family: "arial";
+    font-size: 15px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.bloc_liste{
+    border: 0 solid;
+    clear: left;
+    margin: 10px 0;
+    padding: 13px 5px;
+}
+.bloc_liste p{
+    margin: 0;
+    clear: left;
+}
+
+
+
+        
+        
+        
+/*    NEW PLAN   ------------------------------------------------------------------*/
+
+/*#new_bonplan_content{
+    color: #FF3600;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#new_bonplan_name_input p{
+    float: left;
+    display: block;
+    padding-right: 60px;
+    margin-top: 5px;
+}
+
+#new_bonplan_categories_input p{
+    float: left;
+    display: block;
+    padding-right: 20px;
+    margin-top: 5px;
+}
+
+#new_bonplan_localisation_input p{
+    float: left;
+    display: block;
+    padding-right: 10px;
+    margin-top: 5px;
+}
+
+#new_bonplan_input_submit{
+    margin: 0 auto 0 auto;
+    width: 65px;
+}
+
+#new_bonplan_textarea{
+    outline: none;
+    resize:none;
+    color: #FF3600;
+    margin-top: 20px;
+}*/
+
+/*---------------*/
+/*    BON PLAN   */
+/*---------------*/
+
+/*#bonplan_superconteneur{
+    width: 320px;
+    height: 460px;
+    border: solid red 2px;
+    margin: 0 auto 0 auto;
+    padding: 20px;
+    background-color: #FFFFFF;
+}
+
+#bonplan_content{
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+#bonplan_content p{
+    color: #FF3600;
+}
+
+.bonplan_echo{
+    color: #000000;
+}*/
+
+

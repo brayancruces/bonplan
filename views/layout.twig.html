@@ -1,11 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Bon plan</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bons plans</title>
+        <link href="stylesheets/bootstrap.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="stylesheets/home.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="stylesheets/bootstrap-responsive.css" media="all" rel="stylesheet" type="text/css" />
     </head>
-    <body>
-        {% block body %}
-            Hello
-        {% endblock %}
+    <body id='front'>  
+        <div class='container-fluid'>
+            <div class='navbar'>
+                <div class='navbar-inner'>
+                    <div class='container'>
+                        <a class="brand" href='index.html'>
+                            <img src="images/logo.jpg" style="max-width: 90%;"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="slogan">
+                <img id="img_left" src="images/imgslogan_gauche.png" alt=""/>
+                <p><span>V</span>enez tous partager vos bons plans !!!</p>
+                <img id="img_right" src="images/imgslogan_droit.png" alt=""/>
+            </div>
+            <div id="content">
+                {% block content %}
+                {% endblock %}
+            </div> <!--content-->
+        </div> <!--container-fluid-->
+        <script src="javascripts/jquery.js" type="text/javascript"></script>
+        <script src="javascripts/bootstrap.js" type="text/javascript"></script>
+
     </body>
 </html>
