@@ -46,3 +46,24 @@
     </div> <!--div content_ico-->
 </div> <!--div home_bloc-->
 {% endblock %}
+
+{% block subcontent %}
+<div class="hero-unit">
+    <div class="container-fluid">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <div class="nav">
+                    <ul class="nav clearfix" id="content_footer" style="text-align: center "> 
+                        <li class="bt_footer"><a href="{{ path('home') }}"><img src="/images/ico_home.jpg" style="width: 100%;max-width: 80px;"/></a></li>
+                        <li class="bt_footer"><a href="{{ path('recherche') }}"><img src="/images/ico_search.jpg" style="width: 100%;max-width: 80px;"/></a></li>
+                        <li class="bt_footer"><a href="favories.php"><img src="/images/ico_fav.jpg" style="width: 100%;max-width: 80px;"/></a></li>
+                        <!-- @todo href sur favoris -->
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div> <!--container-->
+        </div><!-- /navbar-inner -->
+    </div><!-- /navbar -->
+   </div> 
+</div>   
+{% endblock %}
