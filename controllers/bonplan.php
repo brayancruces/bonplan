@@ -23,4 +23,8 @@ $bonplan->get('/ajouter', function() use ($app) {
 	return $app['twig']->render('bonplan/ajouter.twig.html');
 })->bind('ajouter');
 
+$bonplan->get('/detail', function() use ($app) {
+	return $app['twig']->render('bonplan/detail.twig.html');
+})->bind('detail');
+
 return $bonplan;
