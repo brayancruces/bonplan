@@ -19,4 +19,8 @@ $bonplan->get('/favoris', function() use ($app) {
     return $app['twig']->render('bonplan/favoris.twig.html');
 })->bind('favoris');
 
+$bonplan->get('/ajouter', function() use ($app) {
+	return $app['twig']->render('bonplan/ajouter.twig.html');
+})->bind('ajouter');
+
 return $bonplan;
