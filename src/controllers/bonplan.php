@@ -20,8 +20,16 @@ $bonplan_controller->get('/favoris', function() use ($app) {
     return $app['twig']->render('bonplan/favoris.twig.html');
 })->bind('favoris');
 
-$bonplan->get('/ajouter', function() use ($app) {
-	return $app['twig']->render('bonplan/ajouter.twig.html');
+$bonplan_controller->get('/ajouter', function() use ($app) {
+	$bonplan = new Bonplan();
+	$form = $app['form.factory']
+		->createBuilder(new BonplanType)
+        ->add('date', 'text')
+        ->add('lieu', 'text')
+        ->add('description', 'text')
+        ->getForm();
+
+	return $app['twig']->render('bonplan/ajouter.twig.html', array('form' => $form->createView()));
 })->bind('ajouter');
 
 $bonplan_controller->get('/detail', function() use ($app) {
