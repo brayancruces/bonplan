@@ -6,6 +6,8 @@ use Silex\Application;
 use Silex\ControllerProviderInterface;
 use Silex\ControllerCollection;
 
+use Symfony\Component\HttpFoundation\Request;
+
 use Bonplan\Entity\Bonplan;
 use Bonplan\Form\Type\BonplanType;
 
@@ -33,11 +35,23 @@ class BonplanControllerProvider implements ControllerProviderInterface
         })->bind('favoris');
 
         $controllers->get('/ajouter', function() use ($app) {
-          $bonplan = new Bonplan();
-          $form = $app['form.factory']->create(new BonplanType(), $bonplan);
+            $form = $app['form.factory']->create(new BonplanType(), new Bonplan());
 
-          return $app['twig']->render('bonplan/ajouter.twig.html', array('form' => $form->createView()));
+            return $app['twig']->render('bonplan/ajouter.twig.html', array('form' => $form->createView()));
         })->bind('ajouter');
+
+        $controllers->post('/ajouter', function(Request $request) use ($app) {
+            $form = $app['form.factory']->create(new BonplanType(), new Bonplan());
+            $form->bindRequest($request);
+            if ($form->isValid()) {
+                $bonplan = $form->getData();
+                // do something with the data
+                // redirect somewhere
+                //return $app->redirect('...');
+            }
+
+            return $app['twig']->render('bonplan/ajouter.twig.html', array('form' => $form->createView()));
+        })->bind('post_ajouter');
 
         $controllers->get('/detail', function() use ($app) {
           return $app['twig']->render('bonplan/detail.twig.html');

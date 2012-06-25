@@ -5,42 +5,26 @@
 {% endblock %}
 
 {% block content %}
-
-{{ form_widget(form) }}
-
-<form id="form_bonplan" class="well clearfix" style="margin: auto; width:41%; min-width:260px; ">
-	<div class="control-group">
-		<label class="control-label ajouter_label" for="select01">Catégories</label>
-		<div class="controls" >
-		    <select id="select01" style="width:100%; max-width: 275px;  ">
-		        <option></option>
-		        <option>Loisirs</option>
-		        <option>Restaurants</option>
-		        <option>Soirées</option>
-		        <option>Se déplacer</option>
-		        <option>Bien être</option>
-		        <option>Shopping</option>
-		        <option>Cadeau</option>
-		        <option>Vie Pratique</option>
-		    </select>
-		</div>
-    </div>
-    <div class="form_ligne clearfix">
-        <label>Date</label>
-        <input style="max-width: 266px; width: 100%;" type="text" class="span3" placeholder="Type something…" />
-    </div>
-
-    <div class="form_ligne clearfix">
-        <label>Lieu</label>
-        <input style="max-width: 266px; width: 100%;" type="text" class="span3" placeholder="Type something…" />
-    </div>
-
-    <div class=​"controls clearfix">​
-        <label style= "padding-bottom:0px;">Description</label>
-        <textarea class=​"input-xlarge" id=​"textarea" rows=​"3">​</textarea>​
-    </div>​
-    <button type="submit" class="btn gradient">Valider</button>
-</form> 
+<form action="{{ path('post_ajouter') }}" method="post" {{ form_enctype(form) }} id="form_bonplan" class="well clearfix" style="margin: auto; width:41%; min-width:260px; ">
+  {{ form_errors(form) }}
+  <div class="form_ligne clearfix">
+    {{ form_label(form.date) }}
+    {{ form_errors(form.date) }}
+    {{ form_widget(form.date, { 'attr' : { 'class' : 'span3', 'placeholder' : 'Type something', 'style' : 'max-width: 266px; width: 100%;' } }) }}
+  </div>
+  <div class="form_ligne clearfix">
+      {{ form_label(form.lieu) }}
+      {{ form_errors(form.lieu) }}
+      {{ form_widget(form.lieu, { 'attr' : { 'class' : 'span3', 'placeholder' : 'Type something', 'style' : 'max-width: 266px; width: 100%;' } }) }}
+  </div>
+  <div class=​"controls clearfix">​
+      {{ form_label(form.lieu, 'DESCRIPTION', { 'attr' : { 'style' : 'padding-bottom:0px;', 'class' : 'input-xlarge' }}) }}
+      {{ form_errors(form.description) }}
+      {{ form_widget(form.description) }}
+  </div>​
+  <button type="submit" class="btn gradient">Valider</button>
+  {{ form_rest(form) }}
+</form>
 {% endblock %}
 
 {% block subcontent %}
@@ -50,7 +34,7 @@
 	        <div class="navbar-inner">
 	            <div class="container">
 	                <div class="nav">
-	                    <ul class="nav clearfix" id="content_footer" style="text-align: center "> 
+	                    <ul class="nav clearfix" id="content_footer" style="text-align: center ">
 	                        <li class="bt_footer"><a href="{{ path('home') }}"><img src="/images/ico_home.jpg" style="width: 100%;max-width: 80px;"/></a></li>
 	                        <li class="bt_footer"><a href="{{ path('recherche') }}"><img src="/images/ico_search.jpg" style="width: 100%;max-width: 80px;"/></a></li>
 	                        <li class="bt_footer"><a href="{{ path('recherche') }}"><img src="/images/ico_fav.jpg" style="width: 100%;max-width: 80px;"/></a></li>
@@ -59,6 +43,6 @@
 	            </div> <!--container-->
 	        </div><!-- /navbar-inner -->
 	    </div><!-- /navbar -->
-   </div> 
-</div> 
+   </div>
+</div>
 {% endblock %}
