@@ -2,6 +2,9 @@
 
 namespace Bonplan\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+
 class Bonplan
 {
   /**
@@ -77,5 +80,17 @@ class Bonplan
     $this->description = $description;
 
     return $this;
+  }
+
+  static public function loadValidatorMetadata(ClassMetadata $metadata)
+  {
+    $metadata->addPropertyConstraint('date', new Assert\NotBlank());
+    $metadata->addPropertyConstraint('date', new Assert\Date());
+
+    $metadata->addPropertyConstraint('lieu', new Assert\NotBlank());
+    $metadata->addPropertyConstraint('lieu', new Assert\MinLength(5));
+
+    $metadata->addPropertyConstraint('description', new Assert\NotBlank());
+    $metadata->addPropertyConstraint('description', new Assert\MinLength(20));
   }
 }

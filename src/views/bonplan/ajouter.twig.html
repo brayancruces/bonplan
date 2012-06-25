@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<form action="{{ path('post_ajouter') }}" method="post" {{ form_enctype(form) }} id="form_bonplan" class="well clearfix" style="margin: auto; width:41%; min-width:260px; ">
+<form action="{{ path('post_ajouter') }}" method="post" {{ form_enctype(form) }} id="form_bonplan" class="well clearfix" style="margin: auto; width:41%; min-width:260px; " novalidate>
   {{ form_errors(form) }}
   <div class="form_ligne clearfix">
     {{ form_label(form.date) }}

@@ -1,5 +1,5 @@
 {
-    "hash": "4acb91a8d0061c56cbefd991707d9ebd",
+    "hash": "e38781da5caf4d6bdd1dab729014c0df",
     "packages": [
         {
             "package": "pimple/pimple",
@@ -124,6 +124,17 @@
         },
         {
             "package": "symfony/twig-bridge",
+            "version": "dev-master",
+            "source-reference": "v2.1.0-BETA1"
+        },
+        {
+            "package": "symfony/validator",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/validator",
             "version": "dev-master",
             "source-reference": "v2.1.0-BETA1"
         },

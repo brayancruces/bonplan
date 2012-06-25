@@ -19,6 +19,8 @@ $app->register(new Silex\Provider\TranslationServiceProvider(), array(
       'translator.messages' => array()
 ));
 
+$app->register(new Silex\Provider\ValidatorServiceProvider());
+
 $app->get('/', function() use ($app){
     return $app['twig']->render('home.twig.html');
 })->bind('home');
