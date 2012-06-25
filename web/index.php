@@ -23,6 +23,7 @@ $app->get('/', function() use ($app){
     return $app['twig']->render('home.twig.html');
 })->bind('home');
 
-$app->mount('/bonplan', include __DIR__.'/../src/controllers/bonplan.php');
+//$app->mount('/', include __DIR__.'/../src/controllers/bonplan.php');
+$app->mount('/', new Bonplan\Controller\BonplanControllerProvider());
 
 $app->run();
