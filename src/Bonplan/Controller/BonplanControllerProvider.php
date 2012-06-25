@@ -6,6 +6,9 @@ use Silex\Application;
 use Silex\ControllerProviderInterface;
 use Silex\ControllerCollection;
 
+use Bonplan\Entity\Bonplan;
+use Bonplan\Form\Type\BonplanType;
+
 class BonplanControllerProvider implements ControllerProviderInterface
 {
     public function connect(Application $app)
@@ -31,12 +34,7 @@ class BonplanControllerProvider implements ControllerProviderInterface
 
         $controllers->get('/ajouter', function() use ($app) {
           $bonplan = new Bonplan();
-          $form = $app['form.factory']
-            ->createBuilder(new BonplanType)
-                ->add('date', 'text')
-                ->add('lieu', 'text')
-                ->add('description', 'text')
-                ->getForm();
+          $form = $app['form.factory']->create(new BonplanType(), $bonplan);
 
           return $app['twig']->render('bonplan/ajouter.twig.html', array('form' => $form->createView()));
         })->bind('ajouter');
