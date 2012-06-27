@@ -21,6 +21,13 @@ $app->register(new Silex\Provider\TranslationServiceProvider(), array(
 
 $app->register(new Silex\Provider\ValidatorServiceProvider());
 
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'db.options' => array(
+        'driver'   => 'pdo_sqlite',
+        'path'     => __DIR__.'/../data/db/bonplan.sqlite',
+    ),
+));
+
 $app->get('/', function() use ($app){
     return $app['twig']->render('home.twig.html');
 })->bind('home');

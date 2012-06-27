@@ -3,3 +3,6 @@ vendor/*
 
 # composer
 composer.phar
+
+# db
+data/db
