@@ -8,6 +8,11 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
 class Bonplan
 {
   /**
+   * @var integer
+   */
+  protected $id;
+
+  /**
    * @var string
    */
   protected $date;
@@ -22,9 +27,27 @@ class Bonplan
    */
   protected $description;
 
+  /**
+   * @var DateTime
+   */
+  protected $created_at;
+
+  /**
+   * @var DateTime
+   */
+  protected $updated_at;
+
   public function __construct() {}
 
   /** Getters **/
+
+  /**
+   * @return integer
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
 
   /**
    * @return string
@@ -48,6 +71,22 @@ class Bonplan
   public function getDescription()
   {
     return $this->description;
+  }
+
+  /**
+   * @return DateTime
+   */
+  public function getCreatedAt()
+  {
+    return $this->created_at;
+  }
+
+  /**
+   * @return DateTime
+   */
+  public function getUpdatedAt()
+  {
+    return $this->updated_at;
   }
 
   /** Setters **/
