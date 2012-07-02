@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Bonplan\Entity\Bonplan;
 use Bonplan\Form\Type\BonplanType;
+use Bonplan\Services\BonplanPersisterService as BonplanPersister;
 
 class BonplanControllerProvider implements ControllerProviderInterface
 {
@@ -44,7 +45,10 @@ class BonplanControllerProvider implements ControllerProviderInterface
             $form = $app['form.factory']->create(new BonplanType(), new Bonplan());
             $form->bindRequest($request);
             if ($form->isValid()) {
-                $bonplan = $form->getData();
+                $app['bonplan.persister'] = $app->share(function ($app) {
+                    return new BonplanPersister($app['db']);
+                });
+                $app['bonplan.persister']->create($form->getData());
                 // do something with the data
                 // redirect somewhere
                 //return $app->redirect('...');
