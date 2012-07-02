@@ -48,17 +48,21 @@ class BonplanControllerProvider implements ControllerProviderInterface
                 $app['bonplan.persister'] = $app->share(function ($app) {
                     return new BonplanPersister($app['db']);
                 });
-                $app['bonplan.persister']->create($form->getData());
-                // do something with the data
-                // redirect somewhere
-                //return $app->redirect('...');
+                //$app['bonplan.persister']->create($form->getData());
+                return $app->redirect('/merci');
             }
 
             return $app['twig']->render('bonplan/ajouter.twig.html', array('form' => $form->createView()));
         })->bind('post_ajouter');
 
+        $controllers->get('/merci', function() use ($app) {
+
+            return $app['twig']->render('bonplan/merci.twig.html');  
+        })->bind('merci');
+
         $controllers->get('/detail', function() use ($app) {
-          return $app['twig']->render('bonplan/detail.twig.html');
+          
+            return $app['twig']->render('bonplan/detail.twig.html');
         })->bind('detail');
 
         return $controllers;

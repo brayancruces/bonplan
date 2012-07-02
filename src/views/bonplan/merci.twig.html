@@ -1,0 +1,31 @@
+{% extends 'layout.twig.html' %}
+
+{% block slogan %}
+<p class="title">ajouter un bon plan</p>
+{% endblock %}
+
+{% block content %}
+  Votre bon plan a bien été ajouté. 
+  <br/>
+  Nous vous remercions de votre participation!
+{% endblock %}
+
+{% block subcontent %}
+<div class="hero-unit">
+	<div class="container-fluid">
+	    <div class="navbar">
+	        <div class="navbar-inner">
+	            <div class="container">
+	                <div class="nav">
+	                    <ul class="nav clearfix" id="content_footer" style="text-align: center ">
+	                        <li class="bt_footer"><a href="{{ path('home') }}"><img src="/images/ico_home.jpg" style="width: 100%;max-width: 80px;"/></a></li>
+	                        <li class="bt_footer"><a href="{{ path('recherche') }}"><img src="/images/ico_search.jpg" style="width: 100%;max-width: 80px;"/></a></li>
+	                        <li class="bt_footer"><a href="{{ path('recherche') }}"><img src="/images/ico_fav.jpg" style="width: 100%;max-width: 80px;"/></a></li>
+	                    </ul>
+	                </div><!-- /.nav-collapse -->
+	            </div> <!--container-->
+	        </div><!-- /navbar-inner -->
+	    </div><!-- /navbar -->
+   </div>
+</div>
+{% endblock %}
