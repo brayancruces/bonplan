@@ -23,3 +23,10 @@ Hosts:
 (Debian) /etc/hosts
 
 127.0.0.1 www.bonplan.local
+
+DB:
+=======================
+
+sqlite3 data/db/bonplan.sqlite
+CREATE TABLE bonplan (id INTEGER PRIMARY KEY, date VARCHAR, lieu VARCHAR, description TEXT);
+chmod 777 -R data/
