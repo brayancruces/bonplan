@@ -28,6 +28,8 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     ),
 ));
 
+$app->register(new Bonplan\Provider\BonplanPersisterServiceProvider());
+
 $app->get('/', function() use ($app){
     return $app['twig']->render('home.twig.html');
 })->bind('home');
