@@ -18,9 +18,15 @@ class BonplanPersisterService
     $this->connection = $conection;
   }
 
+  /**
+   * Persist a new bon plan in bdd
+   *
+   * @return boolean
+   * @see Statement::execute()
+   */
   public function create(Bonplan $bonplan)
   {
     $sql = "INSERT INTO bonplan (date, lieu, description) VALUES (?,?,?)";
-    $this->connection->executeQuery($sql, array($bonplan->getDate(), $bonplan->getLieu(), $bonplan->getDescription()));
+    return $this->connection->executeQuery($sql, array($bonplan->getDate(), $bonplan->getLieu(), $bonplan->getDescription()));
   }
 }

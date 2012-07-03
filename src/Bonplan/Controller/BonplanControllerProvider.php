@@ -48,8 +48,10 @@ class BonplanControllerProvider implements ControllerProviderInterface
                 $app['bonplan.persister'] = $app->share(function ($app) {
                     return new BonplanPersister($app['db']);
                 });
-                //$app['bonplan.persister']->create($form->getData());
-                return $app->redirect('/merci');
+                if ($app['bonplan.persister']->create($form->getData()))
+                {
+                    return $app->redirect('/merci');
+                }
             }
 
             return $app['twig']->render('bonplan/ajouter.twig.html', array('form' => $form->createView()));
@@ -57,11 +59,11 @@ class BonplanControllerProvider implements ControllerProviderInterface
 
         $controllers->get('/merci', function() use ($app) {
 
-            return $app['twig']->render('bonplan/merci.twig.html');  
+            return $app['twig']->render('bonplan/merci.twig.html');
         })->bind('merci');
 
         $controllers->get('/detail', function() use ($app) {
-          
+
             return $app['twig']->render('bonplan/detail.twig.html');
         })->bind('detail');
 
