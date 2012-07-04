@@ -37,7 +37,6 @@ class BonplanControllerProvider implements ControllerProviderInterface
 
         $controllers->get('/ajouter', function() use ($app) {
             $form = $app['form.factory']->create(new BonplanType(), new Bonplan());
-
             return $app['twig']->render('bonplan/ajouter.twig.html', array('form' => $form->createView()));
         })->bind('ajouter');
 
@@ -50,17 +49,14 @@ class BonplanControllerProvider implements ControllerProviderInterface
                     return $app->redirect('/merci');
                 }
             }
-
             return $app['twig']->render('bonplan/ajouter.twig.html', array('form' => $form->createView()));
         })->bind('post_ajouter');
 
         $controllers->get('/merci', function() use ($app) {
-
             return $app['twig']->render('bonplan/merci.twig.html');
         })->bind('merci');
 
         $controllers->get('/detail', function() use ($app) {
-
             return $app['twig']->render('bonplan/detail.twig.html');
         })->bind('detail');
 
