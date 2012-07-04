@@ -56,9 +56,19 @@ class BonplanControllerProvider implements ControllerProviderInterface
             return $app['twig']->render('bonplan/merci.twig.html');
         })->bind('merci');
 
-        $controllers->get('/detail', function() use ($app) {
-            return $app['twig']->render('bonplan/detail.twig.html');
-        })->bind('detail');
+        $controllers->get('/{id}', function($id) use ($app) {
+            $params = array();
+            try
+            {
+                $params['bonplan'] = $app['bonplan.persister']->readOne($id);
+            }
+            catch (\InvalidArgumentException $e)
+            {
+                $params['error'] = 'Sorry, the resource you are looking for could not be found.';
+            }
+            return $app['twig']->render('bonplan/detail.twig.html', $params);
+        })->bind('detail')
+          ->assert('id', '\d+');
 
         return $controllers;
     }
