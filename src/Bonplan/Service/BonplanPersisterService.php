@@ -29,4 +29,24 @@ class BonplanPersisterService
     $sql = "INSERT INTO bonplan (date, lieu, description) VALUES (?,?,?)";
     return $this->connection->executeQuery($sql, array($bonplan->getDate(), $bonplan->getLieu(), $bonplan->getDescription()));
   }
+
+  /**
+   * Retrieve one object by id
+   *
+   * @param integer $id
+   * @return Bonplan\Entity\Bonplan
+   * @throws InvalidArgumentException
+   */
+  public function readOne($id)
+  {
+    $sql = "SELECT * FROM bonplan WHERE id = ?";
+    $data = $this->connection->fetchAssoc($sql, array((int) $id));
+
+    if (!$data)
+    {
+      throw new \InvalidArgumentException("Unknown id");
+    }
+
+    return Bonplan::fromArray($data);
+  }
 }
