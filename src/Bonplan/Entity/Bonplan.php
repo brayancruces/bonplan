@@ -121,6 +121,26 @@ class Bonplan
     return $this;
   }
 
+  /** Business part **/
+
+  /**
+   * Fill a new bonplan instance with data
+   * 
+   * @param array $data Associative array
+   * @return Bonplan\Entity\Bonplan
+   */
+  static public function fromArray($data)
+  {
+    $bonplan = new Bonplan;
+
+    foreach ($data as $key => $value)
+    {
+      $bonplan->$key = $value;
+    }
+
+    return $bonplan;
+  }
+
   static public function loadValidatorMetadata(ClassMetadata $metadata)
   {
     $metadata->addPropertyConstraint('date', new Assert\NotBlank());
