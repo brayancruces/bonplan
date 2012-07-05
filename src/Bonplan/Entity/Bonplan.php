@@ -4,8 +4,9 @@ namespace Bonplan\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Doctrine\DBAL\Connection;
 
-class Bonplan
+class Bonplan implements BonplanCrudInterface
 {
   /**
    * @var integer
@@ -123,9 +124,41 @@ class Bonplan
 
   /** Business part **/
 
+  /** Herited from crud interface **/
+
+  /**
+   * @see BonplanCrudInterface::readOne()
+   * @return Bonplan\Entity\Bonplan
+   */
+  static public function readOne(array $primaryKey, Connection $conection)
+  {
+    if (!count($primaryKey))
+    {
+      throw new \InvalidArgumentException("Primary key can't be empty");
+    }
+
+    $sql = "SELECT * FROM bonplan WHERE ";
+
+    foreach (array_keys($primaryKey) as $key)
+    {
+      $sql .= $key . ' = ?';
+    }
+
+    $return = $conection->fetchAssoc($sql, array_values($primaryKey));
+
+    if (!$return)
+    {
+      throw new \UnexpectedValueException("The resource cant't be found");
+    }
+
+    return self::fromArray($return);
+  }
+
+  /** Herited from interface **/
+
   /**
    * Fill a new bonplan instance with data
-   * 
+   *
    * @param array $data Associative array
    * @return Bonplan\Entity\Bonplan
    */
