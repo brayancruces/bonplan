@@ -6,6 +6,9 @@ use Doctrine\DBAL\Connection;
 
 use Bonplan\Entity\Bonplan;
 
+/**
+ * @todo delete
+ */
 class BonplanPersisterService
 {
   /**

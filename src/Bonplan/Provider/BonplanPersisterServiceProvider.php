@@ -7,6 +7,9 @@ use Silex\ServiceProviderInterface;
 
 use Bonplan\Service\BonplanPersisterService;
 
+/**
+ * @todo delete
+ */
 class BonplanPersisterServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)

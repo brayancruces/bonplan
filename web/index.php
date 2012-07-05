@@ -28,6 +28,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     ),
 ));
 
+//todo delete
 $app->register(new Bonplan\Provider\BonplanPersisterServiceProvider());
 
 $app->get('/', function() use ($app){
