@@ -60,7 +60,7 @@ class BonplanControllerProvider implements ControllerProviderInterface
             $params = array();
             try
             {
-                $params['bonplan'] = $app['bonplan.persister']->readOne($id);
+                $params['bonplan'] = Bonplan::readOne(array('id' => $id), $app['db']);
             }
             catch (\InvalidArgumentException $e)
             {
