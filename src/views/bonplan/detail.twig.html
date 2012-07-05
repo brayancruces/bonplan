@@ -5,34 +5,32 @@
 {% endblock %}
 
 {% block content %}
-<form class="well" style="margin: auto;">
+    {% if error is defined %}
+        {{ error }}
+    {% elseif bonplan is defined %}
     <div class="hero-unit detailcategories">
-        <p class="tag_cat">Cinema</p>
-        <p><span class="date">30 MARS</span>  <span class="lieu">18h - mairie du 2e</span></p>
-        <p class="description_cat" style="text-align: left;">Projection débat gratuit du film «Journal d’un medecin dans les Tranchées».</p>
-        <br />
-		<ul class="thumbnails img_bonplan">                      
-		<li class="span3">
-		    <a href="loisirs.php" class="thumbnail">
-		        <img src="/images/img_bonplan.jpg" alt="#" />
-		    </a>
-		</li>
-		</ul>
+        <p class="tag_cat">
+            bonplan.tag
+        </p>
+        <p>
+            <span class="date">{{ bonplan.date }}</span>  <span class="lieu">{{ bonplan.lieu }}</span>
+        </p>
+        <p class="description_cat" style="text-align: left;">
+            bonplan.titre
+        </p><br />
+        <ul class="thumbnails img_bonplan">
+            <li class="span3">
+                <a href="loisirs.php" class="thumbnail"><img src="/images/img_bonplan.jpg" alt="#" /></a>
+            </li>
+        </ul>
         <p class="description_bonplan">
-            La Mairie du 11e vous invite à la projection du film « Journal d'un médecin dans les tranchées ». A l'issue de la projection, un débat sera animé par André LOEZ, docteur en histoire contemporaine, spécialiste de la Guerre 14-18. 
-
-Un film de Joëlle NOVIC, coproduit par Injam, France Télévisions et ECPAD, avec le soutien de la région Picardie, 2011. Durée : 52 min.
-
-Les témoignages des médecins de la Grande Guerre sont très rares tant ils sont restés silencieux à leur retour du front sur ce qu'ils ont vécu.
-Le témoignage de Lucien Laby, médecin dans les tranchées, est unique. A partir de son journal et de ses dessins le film fait le récit de ce qui a eu lieu entre Marne et Somme d'août 1914 à novembre 1918. La voix de Lucien Laby nous conduit sur les traces des combats que le temps efface. Elle fait écho aux images d'archives, muettes, qui accompagnent le film. Ses dessins, son regard, témoignent par delà le temps.
-
-A l'issue de la projection, un débat sera animé par André LOEZ, docteur en histoire contemporaine, spécialiste de la Guerre 14-18, qui dédicacera ses ouvrages.
+            {{ bonplan.description }}
         </p>
         <p style="display: block;font-size: 20px; font-family:BebasNeueRegular;">
-            Prix:...€
+            Prix: bonplan.prix
         </p>
         <p style="display: block; clear:left; font-size: 13px">
-            éditée par "..."
+            bonplan.author
         </p><br />
         <a class="btn btn-primary btn-large" style="display: block; ">
             Ajouter aux Favories
@@ -43,9 +41,8 @@ A l'issue de la projection, un débat sera animé par André LOEZ, docteur en hi
             <img style="width: 40px; margin: 0 5px;" src="images/ico_twitter.png" alt="twitter" />
             <img style="width: 40px; margin: 0 5px;" src="images/ico_rss.jpg" alt="rss" />
         </p>
-
     </div>
-</form>
+    {% endif %}
 {% endblock %}
 
 {% block subcontent %}
@@ -55,7 +52,7 @@ A l'issue de la projection, un débat sera animé par André LOEZ, docteur en hi
 	        <div class="navbar-inner">
 	            <div class="container">
 	                <div class="nav">
-	                    <ul class="nav clearfix" id="content_footer" style="text-align: center "> 
+	                    <ul class="nav clearfix" id="content_footer" style="text-align: center ">
 	                        <li class="bt_footer"><a href="{{ path('home') }}"><img src="/images/ico_home.jpg" style="width: 100%;max-width: 80px;"/></a></li>
 	                        <li class="bt_footer"><a href="{{ path('recherche') }}"><img src="/images/ico_search.jpg" style="width: 100%;max-width: 80px;"/></a></li>
 	                        <li class="bt_footer"><a href="{{ path('recherche') }}"><img src="/images/ico_fav.jpg" style="width: 100%;max-width: 80px;"/></a></li>
@@ -64,6 +61,6 @@ A l'issue de la projection, un débat sera animé par André LOEZ, docteur en hi
 	            </div> <!--container-->
 	        </div><!-- /navbar-inner -->
 	    </div><!-- /navbar -->
-   </div> 
-</div> 
+   </div>
+</div>
 {% endblock %}
