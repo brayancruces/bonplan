@@ -9,6 +9,11 @@ use Doctrine\DBAL\Connection;
 class Bonplan implements BonplanCrudInterface
 {
   /**
+   * @var string
+   */
+  private $tableName = 'bonplan';
+
+  /**
    * @var integer
    */
   protected $id;
