@@ -44,7 +44,8 @@ class BonplanControllerProvider implements ControllerProviderInterface
             $form = $app['form.factory']->create(new BonplanType(), new Bonplan());
             $form->bindRequest($request);
             if ($form->isValid()) {
-                if ($app['bonplan.persister']->create($form->getData()))
+                $bonplan = $form->getData();
+                if ($bonplan->create($app['db']))
                 {
                     return $app->redirect('/merci');
                 }
