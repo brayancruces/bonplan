@@ -16,6 +16,13 @@ interface BonplanCrudInterface
   public static function readOne(array $primaryKey, Connection $connection);
 
   /**
+   * Persist a new object in bdd.
+   * Return true if everything went well. False otherwise
+   *
+   * @param Connection $connection
+   * @return boolean
+   */
+  public function create(Connection $connection);
 
   /**
    * Return the table name
