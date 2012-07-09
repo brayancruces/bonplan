@@ -13,5 +13,5 @@ interface BonplanCrudInterface
    * @param Connection $connection
    * @throws InvalidArgumentException, UnexpectedValueException
    */
-  public static function readOne(array $primaryKey, Connection $conection);
+  public static function readOne(array $primaryKey, Connection $connection);
 }
