@@ -159,6 +159,25 @@ class Bonplan implements BonplanCrudInterface
     return self::fromArray($return);
   }
 
+  /**
+   * @see BonplanCrudInterface::create()
+   */
+  public function create(Connection $connection)
+  {
+    $nbInsert = $connection->insert($this->tableName, array(
+      'date'        => $this->date,
+      'lieu'        => $this->lieu,
+      'description' => $this->description
+    ));
+
+    return $nbInsert === 1 ? true : false;
+  }
+
+  static public function getTableName()
+  {
+    return $this->tableName;
+  }
+
   /** Herited from interface **/
 
   /**
