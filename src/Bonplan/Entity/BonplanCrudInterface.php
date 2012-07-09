@@ -14,4 +14,13 @@ interface BonplanCrudInterface
    * @throws InvalidArgumentException, UnexpectedValueException
    */
   public static function readOne(array $primaryKey, Connection $connection);
+
+  /**
+
+  /**
+   * Return the table name
+   *
+   * @return string The table name
+   */
+  static public function getTableName();
 }
