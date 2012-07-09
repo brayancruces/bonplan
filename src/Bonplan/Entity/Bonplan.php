@@ -130,7 +130,7 @@ class Bonplan implements BonplanCrudInterface
    * @see BonplanCrudInterface::readOne()
    * @return Bonplan\Entity\Bonplan
    */
-  static public function readOne(array $primaryKey, Connection $conection)
+  static public function readOne(array $primaryKey, Connection $connection)
   {
     if (!count($primaryKey))
     {
@@ -144,7 +144,7 @@ class Bonplan implements BonplanCrudInterface
       $sql .= $key . ' = ?';
     }
 
-    $return = $conection->fetchAssoc($sql, array_values($primaryKey));
+    $return = $connection->fetchAssoc($sql, array_values($primaryKey));
 
     if (!$return)
     {
