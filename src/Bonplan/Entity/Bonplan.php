@@ -6,6 +6,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Doctrine\DBAL\Connection;
 
+use Bonplan\Helper\DateHelper;
+
 class Bonplan implements BonplanCrudInterface
 {
   /**
@@ -61,6 +63,12 @@ class Bonplan implements BonplanCrudInterface
   public function getDate()
   {
     return $this->date;
+  }
+
+  public function getFullDate()
+  {
+    $helper = new DateHelper(new \DateTime($this->date));
+    return $helper->getFullDate();
   }
 
   /**
