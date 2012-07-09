@@ -200,7 +200,7 @@ class Bonplan implements BonplanCrudInterface
 
   static public function loadValidatorMetadata(ClassMetadata $metadata)
   {
-    $metadata->addPropertyConstraint('date', new Assert\NotBlank());
+    $metadata->addPropertyConstraint('date', new Assert\Date());
 
     $metadata->addPropertyConstraint('lieu', new Assert\NotBlank());
     $metadata->addPropertyConstraint('lieu', new Assert\MinLength(5));
