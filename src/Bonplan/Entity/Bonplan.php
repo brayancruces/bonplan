@@ -75,6 +75,15 @@ class Bonplan implements BonplanCrudInterface
   }
 
   /**
+   * @see DateHelper::getSmallDate()
+   */
+  public function getSmallDate()
+  {
+    $helper = new DateHelper(new \DateTime($this->date));
+    return $helper->getSmallDate();
+  }
+
+  /**
    * @return string
    */
   public function getLieu()
