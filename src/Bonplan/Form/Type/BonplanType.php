@@ -12,9 +12,10 @@ class BonplanType extends AbstractType
     {
         $builder->add('titre');
         $builder->add('date', 'date', array(
-            'widget' => 'single_text',
-            'input'  => 'string',
-            'format' => 'yyyy-MM-dd'
+            'widget'   => 'single_text',
+            'input'    => 'string',
+            'format'   => 'yyyy-MM-dd',
+            'required' => false
         ));
         $builder->add('lieu');
         $builder->add('description', 'textarea');
