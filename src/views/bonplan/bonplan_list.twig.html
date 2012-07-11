@@ -1,7 +1,11 @@
-{% for bonplan in bonplans %}
-    <a href="bonplandetail.php" class="thumbnail gradient bloc_liste">
-        <p class="tag_cat">bonplan.tag</p>
-        <p><span class="date">{{ bonplan.getFullDate }}</span>  <span class="lieu">{{ bonplan.lieu }}</span></p>
-        <p><span class="description">{{ bonplan.description }}</span></p>
-    </a>
-{% endfor %}
+{% if bonplans is empty %}
+    Il n'y a pas de bon plan aujourd'hui.
+{% else %}
+    {% for bonplan in bonplans %}
+        <a href="bonplandetail.php" class="thumbnail gradient bloc_liste">
+            <p class="tag_cat">bonplan.tag</p>
+            <p><span class="date">{{ bonplan.getSmallDate }}</span>  <span class="lieu">{{ bonplan.lieu }}</span></p>
+            <p><span class="description">{{ bonplan.description }}</span></p>
+        </a>
+    {% endfor %}
+{% endif %}
