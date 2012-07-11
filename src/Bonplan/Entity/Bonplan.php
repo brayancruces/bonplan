@@ -172,7 +172,7 @@ class Bonplan implements BonplanCrudInterface
    */
   public function create(Connection $connection)
   {
-    $nbInsert = $connection->insert($this->tableName, array(
+    $nbInsert = $connection->insert(self::$tableName, array(
       'date'        => $this->date,
       'lieu'        => $this->lieu,
       'description' => $this->description
