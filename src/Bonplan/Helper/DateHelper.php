@@ -39,4 +39,14 @@ class DateHelper
   {
     return sprintf('Le %s %d %s %d', $this->days[$this->date->format('w')], $this->date->format('d'), $this->months[$this->date->format('n') - 1], $this->date->format('Y'));
   }
+
+  /**
+   * Returns the small date in french
+   *
+   * @return string
+   */
+  public function getSmallDate()
+  {
+    return sprintf('%d %s', $this->date->format('d'), $this->months[$this->date->format('n') - 1]);
+  }
 }
