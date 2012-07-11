@@ -150,7 +150,7 @@ class Bonplan implements BonplanCrudInterface
       throw new \InvalidArgumentException("Primary key can't be empty");
     }
 
-    $sql = "SELECT * FROM bonplan WHERE ";
+    $sql = 'SELECT * FROM ' . self::$tableName . ' WHERE ';
 
     foreach (array_keys($primaryKey) as $key)
     {
