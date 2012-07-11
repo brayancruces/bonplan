@@ -33,7 +33,7 @@
       {{ form_widget(form.prix, { 'attr' : { 'class' : 'span3', 'placeholder' : '0.00 €', 'style' : 'max-width: 266px; width: 100%;' } }) }}
   </div>
   <button type="submit" class="btn gradient">Valider</button>
-  {{ form_rest(form) }}
+  {{ form_widget(form._token) }}
 </form>
 {% endblock %}
 
