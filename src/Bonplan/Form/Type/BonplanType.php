@@ -10,6 +10,7 @@ class BonplanType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $builder->add('titre');
         $builder->add('date', 'date', array(
             'widget' => 'single_text',
             'input'  => 'string',

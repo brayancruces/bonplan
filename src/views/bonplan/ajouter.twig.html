@@ -8,6 +8,11 @@
 <form action="{{ path('post_ajouter') }}" method="post" {{ form_enctype(form) }} id="form_bonplan" class="well clearfix" style="margin: auto; width:41%; min-width:260px; " novalidate>
   {{ form_errors(form) }}
   <div class="form_ligne clearfix">
+      {{ form_label(form.titre) }}
+      {{ form_errors(form.titre) }}
+      {{ form_widget(form.titre, { 'attr' : { 'class' : 'span3', 'placeholder' : 'Type something', 'style' : 'max-width: 266px; width: 100%;' } }) }}
+  </div>
+  <div class="form_ligne clearfix">
     {{ form_label(form.date) }}
     {{ form_errors(form.date) }}
     {{ form_widget(form.date, { 'attr' : { 'class' : 'span3', 'style' : 'max-width: 266px; width: 100%;' } }) }}

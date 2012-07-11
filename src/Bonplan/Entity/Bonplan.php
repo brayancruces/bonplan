@@ -23,6 +23,11 @@ class Bonplan implements BonplanCrudInterface
   /**
    * @var string
    */
+  protected $titre;
+
+  /**
+   * @var string
+   */
   protected $date;
 
   /**
@@ -55,6 +60,14 @@ class Bonplan implements BonplanCrudInterface
   public function getId()
   {
     return $this->id;
+  }
+
+  /**
+   * @return string
+   */
+  public function getTitre()
+  {
+    return $this->titre;
   }
 
   /**
@@ -116,6 +129,16 @@ class Bonplan implements BonplanCrudInterface
   }
 
   /** Setters **/
+
+  /**
+   * @return BonPlan
+   */
+  public function setTitre($titre)
+  {
+    $this->titre = $titre;
+
+    return $this;
+  }
 
   /**
    * @return BonPlan
@@ -185,6 +208,7 @@ class Bonplan implements BonplanCrudInterface
   public function create(Connection $connection)
   {
     $nbInsert = $connection->insert(self::$tableName, array(
+      'titre'       => $this->titre,
       'date'        => $this->date,
       'lieu'        => $this->lieu,
       'description' => $this->description
@@ -249,6 +273,9 @@ class Bonplan implements BonplanCrudInterface
 
   static public function loadValidatorMetadata(ClassMetadata $metadata)
   {
+    $metadata->addPropertyConstraint('titre', new Assert\NotBlank());
+    $metadata->addPropertyConstraint('titre', new Assert\MinLength(5));
+
     $metadata->addPropertyConstraint('date', new Assert\Date());
 
     $metadata->addPropertyConstraint('lieu', new Assert\NotBlank());
