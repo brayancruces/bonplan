@@ -65,6 +65,9 @@ class Bonplan implements BonplanCrudInterface
     return $this->date;
   }
 
+  /**
+   * @see DateHelper::getFullDate()
+   */
   public function getFullDate()
   {
     $helper = new DateHelper(new \DateTime($this->date));
