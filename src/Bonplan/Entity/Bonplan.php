@@ -46,6 +46,11 @@ class Bonplan implements BonplanCrudInterface
   protected $prix;
 
   /**
+   * @var string
+   */
+  protected $auteur;
+
+  /**
    * @var DateTime
    */
   protected $created_at;
@@ -126,6 +131,14 @@ class Bonplan implements BonplanCrudInterface
   }
 
   /**
+   * @return string
+   */
+  public function getAuteur()
+  {
+    return $this->auteur;
+  }
+
+  /**
    * @return DateTime
    */
   public function getCreatedAt()
@@ -198,6 +211,17 @@ class Bonplan implements BonplanCrudInterface
     return $this;
   }
 
+  /**
+   * @param string
+   * @return Bonplan
+   */
+  public function setAuteur($auteur)
+  {
+    $this->auteur = $auteur;
+
+    return $this;
+  }
+
   /** Business part **/
 
   /** Herited from crud interface **/
@@ -242,6 +266,7 @@ class Bonplan implements BonplanCrudInterface
     $values['lieu'] = $this->lieu;
     $values['description'] = $this->description;
     if (!is_null($this->prix)) $values['prix'] = $this->prix;
+    if (!is_null($this->auteur)) $values['auteur'] = $this->auteur;
 
     return $connection->insert(self::$tableName, $values) === 1 ? true : false;
   }
@@ -316,5 +341,8 @@ class Bonplan implements BonplanCrudInterface
     $metadata->addPropertyConstraint('prix', new Assert\Regex('/^\d+(\.\d{1,2})?$/'));
     $metadata->addPropertyConstraint('prix', new Assert\Max(9999));
     $metadata->addPropertyConstraint('prix', new Assert\Min(0));
+
+    $metadata->addPropertyConstraint('auteur', new Assert\MinLength(2));
+    $metadata->addPropertyConstraint('auteur', new Assert\MaxLength(20));
   }
 }
