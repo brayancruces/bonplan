@@ -144,7 +144,8 @@ class Bonplan implements BonplanCrudInterface
   /** Setters **/
 
   /**
-   * @return BonPlan
+   * @param string
+   * @return Bonplan
    */
   public function setTitre($titre)
   {
@@ -154,7 +155,8 @@ class Bonplan implements BonplanCrudInterface
   }
 
   /**
-   * @return BonPlan
+   * @param string
+   * @return Bonplan
    */
   public function setDate($date)
   {
@@ -164,7 +166,8 @@ class Bonplan implements BonplanCrudInterface
   }
 
   /**
-   * @return BonPlan
+   * @param string
+   * @return Bonplan
    */
   public function setLieu($lieu)
   {
@@ -174,7 +177,8 @@ class Bonplan implements BonplanCrudInterface
   }
 
   /**
-   * @return BonPlan
+   * @param string
+   * @return Bonplan
    */
   public function setDescription($description)
   {
@@ -184,7 +188,8 @@ class Bonplan implements BonplanCrudInterface
   }
 
   /**
-   * @return BonPlan
+   * @param float
+   * @return Bonplan
    */
   public function setPrix($prix)
   {
