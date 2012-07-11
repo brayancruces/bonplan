@@ -194,6 +194,30 @@ class Bonplan implements BonplanCrudInterface
   /** Herited from interface **/
 
   /**
+   * Get all bonplan for this day
+   *
+   * @param Connection $connection
+   * @return array
+   */
+  static public function readForToday(Connection $connection)
+  {
+    $today = new \DateTime;
+
+    $sql = 'SELECT * FROM ' . self::$tableName . ' WHERE (date >= ? AND date <= ?) OR date IS NULL';
+
+    $results = $connection->fetchAll($sql, array($today->format('Y-m-d'), $today->format('Y-m-d')));
+
+    $bonplans = array();
+
+    foreach ($results as $result)
+    {
+      $bonplans[] = self::fromArray($result);
+    }
+
+    return $bonplans;
+  }
+
+  /**
    * Fill a new bonplan instance with data
    *
    * @param array $data Associative array
