@@ -5,7 +5,7 @@
         <a href="bonplandetail.php" class="thumbnail gradient bloc_liste">
             <p class="tag_cat">bonplan.tag</p>
             <p><span class="date">{{ bonplan.getSmallDate }}</span>  <span class="lieu">{{ bonplan.lieu }}</span></p>
-            <p><span class="description">{{ bonplan.description }}</span></p>
+            <p><span class="description">{{ bonplan.description|nl2br }}</span></p>
         </a>
     {% endfor %}
 {% endif %}
