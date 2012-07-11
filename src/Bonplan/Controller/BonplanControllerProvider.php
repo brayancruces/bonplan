@@ -28,7 +28,8 @@ class BonplanControllerProvider implements ControllerProviderInterface
         })->bind('recherche');
 
         $controllers->get('/plandujour', function() use ($app) {
-            return $app['twig']->render('bonplan/plandujour.twig.html');
+            $bonplans = Bonplan::readForToday($app['db']);
+            return $app['twig']->render('bonplan/plandujour.twig.html', array('bonplans' => $bonplans));
         })->bind('plandujour');
 
         $controllers->get('/favoris', function() use ($app) {
