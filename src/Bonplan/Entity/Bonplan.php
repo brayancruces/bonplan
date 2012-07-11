@@ -13,7 +13,7 @@ class Bonplan implements BonplanCrudInterface
   /**
    * @var string
    */
-  private $tableName = 'bonplan';
+  private static $tableName = 'bonplan';
 
   /**
    * @var integer
@@ -183,7 +183,7 @@ class Bonplan implements BonplanCrudInterface
 
   static public function getTableName()
   {
-    return $this->tableName;
+    return self::$tableName;
   }
 
   /** Herited from interface **/
