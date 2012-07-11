@@ -41,6 +41,11 @@ class Bonplan implements BonplanCrudInterface
   protected $description;
 
   /**
+   * @var float
+   */
+  protected $prix;
+
+  /**
    * @var DateTime
    */
   protected $created_at;
@@ -113,6 +118,14 @@ class Bonplan implements BonplanCrudInterface
   }
 
   /**
+   * @return float
+   */
+  public function getPrix()
+  {
+    return $this->prix;
+  }
+
+  /**
    * @return DateTime
    */
   public function getCreatedAt()
@@ -170,6 +183,16 @@ class Bonplan implements BonplanCrudInterface
     return $this;
   }
 
+  /**
+   * @return BonPlan
+   */
+  public function setPrix($prix)
+  {
+    $this->prix = $prix;
+
+    return $this;
+  }
+
   /** Business part **/
 
   /** Herited from crud interface **/
@@ -207,14 +230,15 @@ class Bonplan implements BonplanCrudInterface
    */
   public function create(Connection $connection)
   {
-    $nbInsert = $connection->insert(self::$tableName, array(
-      'titre'       => $this->titre,
-      'date'        => $this->date,
-      'lieu'        => $this->lieu,
-      'description' => $this->description
-    ));
+    $values = array();
 
-    return $nbInsert === 1 ? true : false;
+    $values['titre'] = $this->titre;
+    if (strlen($this->date)) $values['date'] = $this->date;
+    $values['lieu'] = $this->lieu;
+    $values['description'] = $this->description;
+    if (!is_null($this->prix)) $values['prix'] = $this->prix;
+
+    return $connection->insert(self::$tableName, $values) === 1 ? true : false;
   }
 
   /**
@@ -283,5 +307,9 @@ class Bonplan implements BonplanCrudInterface
 
     $metadata->addPropertyConstraint('description', new Assert\NotBlank());
     $metadata->addPropertyConstraint('description', new Assert\MinLength(20));
+
+    $metadata->addPropertyConstraint('prix', new Assert\Regex('/^\d+(\.\d{1,2})?$/'));
+    $metadata->addPropertyConstraint('prix', new Assert\Max(9999));
+    $metadata->addPropertyConstraint('prix', new Assert\Min(0));
   }
 }

@@ -18,6 +18,7 @@ class BonplanType extends AbstractType
         ));
         $builder->add('lieu');
         $builder->add('description', 'textarea');
+        $builder->add('prix', 'text', array('required' => false));
     }
 
     public function getName()
