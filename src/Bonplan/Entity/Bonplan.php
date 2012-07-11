@@ -181,6 +181,11 @@ class Bonplan implements BonplanCrudInterface
     return $nbInsert === 1 ? true : false;
   }
 
+  /**
+   * Returns the table name
+   *
+   * @return string
+   */
   static public function getTableName()
   {
     return self::$tableName;
