@@ -1,5 +1,5 @@
 {
-    "hash": "96dfd0332c69803ac937180830efcfa6",
+    "hash": "e44db645e692ee626b760ad8665c0170",
     "packages": [
         {
             "package": "doctrine/common",
@@ -157,6 +157,17 @@
             "package": "symfony/validator",
             "version": "dev-master",
             "source-reference": "cd0190ceddbad95a119b5c37d6ba9c61bd2c7a4b"
+        },
+        {
+            "package": "symfony/yaml",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/yaml",
+            "version": "dev-master",
+            "source-reference": "711eb7f1982184478995c064a132fd70b019f174"
         },
         {
             "package": "twig/twig",

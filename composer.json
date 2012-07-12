@@ -8,6 +8,7 @@
         "symfony/translation": "2.1.*",
         "symfony/validator": "2.1.*",
         "doctrine/dbal": "2.2.*",
+        "symfony/yaml": "2.1.*",
         "igorw/config-service-provider": "dev-master"
     },
     "autoload": {
