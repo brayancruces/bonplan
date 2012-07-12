@@ -5,6 +5,7 @@ Configuration Apache:
   ServerName www.bonplan.local
   DocumentRoot path/to/web
   DirectoryIndex index.html index.php
+  SetEnv APP_ENV dev
   <Directory path/to/web>
     Options Indexes Includes FollowSymLinks -MultiViews
     AllowOverride All
