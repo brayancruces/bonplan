@@ -27,7 +27,7 @@
             {{ bonplan.description|nl2br }}
         </p>
         <p style="display: block;font-size: 20px; font-family:BebasNeueRegular;">
-            Prix: {{ bonplan.prix }} €
+            Prix: {% if bonplan.prix == 0 %} Gratuit {% else %} {{ bonplan.prix }} € {% endif %}
         </p>
         <p style="display: block; clear:left; font-size: 13px">
             Auteur: {{ bonplan.auteur }}
