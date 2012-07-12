@@ -8,7 +8,7 @@ $app = new Silex\Application();
 
 $app->register(new Igorw\Silex\ConfigServiceProvider(__DIR__."/../config/$env.yml"));
 
-$app['debug'] = true;
+$app['debug'] = isset($app['config.global']) ?: false;
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../src/views',
