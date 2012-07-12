@@ -6,3 +6,6 @@ composer.phar
 
 # db
 data/db
+
+#conf
+config/*
