@@ -1,0 +1,7 @@
+config.global:
+  debug:    true
+config.database:
+  dbname:   bonplan
+  host:     localhost
+  user:     root
+  password:
