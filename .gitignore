@@ -3,6 +3,7 @@ vendor/*
 
 # composer
 composer.phar
+composer.lock
 
 # db
 data/db
