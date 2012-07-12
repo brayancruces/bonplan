@@ -1,10 +1,12 @@
 <?php
 
-require_once __DIR__.'/../config/config.php';
-
 require_once __DIR__.'/../vendor/autoload.php';
 
+$env = getenv('APP_ENV') ?: 'prod';
+
 $app = new Silex\Application();
+
+$app->register(new Igorw\Silex\ConfigServiceProvider(__DIR__."/../config/$env.yml"));
 
 $app['debug'] = true;
 
@@ -23,7 +25,7 @@ $app->register(new Silex\Provider\TranslationServiceProvider(), array(
 
 $app->register(new Silex\Provider\ValidatorServiceProvider());
 
-$app->register(new Silex\Provider\DoctrineServiceProvider(), array('db.options' => $db_config));
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array('db.options' => $app['config.database']));
 
 $app->get('/', function() use ($app){
     return $app['twig']->render('home.twig.html');
