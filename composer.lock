@@ -11,6 +11,11 @@
             "source-reference": "b961a3fce6bf220f1dca47d7d747b9074bea4730"
         },
         {
+            "package": "igorw/config-service-provider",
+            "version": "dev-master",
+            "source-reference": "1c549fe27636b1708dfb3b1664a3b979b9fa46d3"
+        },
+        {
             "package": "pimple/pimple",
             "version": "dev-master",
             "alias-pretty-version": "1.0.x-dev",
@@ -20,6 +25,12 @@
             "package": "pimple/pimple",
             "version": "dev-master",
             "source-reference": "d2cfa2f02f50abef65c238747c753a5f6786f6be"
+        },
+        {
+            "package": "silex/silex",
+            "version": "dev-master",
+            "alias-pretty-version": "1.0.x-dev",
+            "alias-version": "1.0.9999999.9999999-dev"
         },
         {
             "package": "silex/silex",
@@ -165,6 +176,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "silex/silex": 20
+        "silex/silex": 20,
+        "igorw/config-service-provider": 20
     }
 }
