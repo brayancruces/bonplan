@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__.'/../config/config.php';
+
 require_once __DIR__.'/../vendor/autoload.php';
 
 $app = new Silex\Application();
@@ -21,12 +23,7 @@ $app->register(new Silex\Provider\TranslationServiceProvider(), array(
 
 $app->register(new Silex\Provider\ValidatorServiceProvider());
 
-$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
-    'db.options' => array(
-        'driver'   => 'pdo_sqlite',
-        'path'     => __DIR__.'/../data/db/bonplan.sqlite',
-    ),
-));
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array('db.options' => $db_config));
 
 $app->get('/', function() use ($app){
     return $app['twig']->render('home.twig.html');
