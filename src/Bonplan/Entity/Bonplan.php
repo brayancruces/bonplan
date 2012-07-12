@@ -267,6 +267,8 @@ class Bonplan implements BonplanCrudInterface
     $values['description'] = $this->description;
     if (!is_null($this->prix)) $values['prix'] = $this->prix;
     if (!is_null($this->auteur)) $values['auteur'] = $this->auteur;
+    $values['created_at'] = date('Y-m-d H:i:s');
+    $values['updated_at'] = date('Y-m-d H:i:s');
 
     return $connection->insert(self::$tableName, $values) === 1 ? true : false;
   }
