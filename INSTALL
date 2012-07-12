@@ -27,6 +27,18 @@ Hosts:
 DB:
 =======================
 
-sqlite3 data/db/bonplan.sqlite
-CREATE  TABLE "bonplan" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , "titre" VARCHAR NOT NULL, "date" DATE, "lieu" VARCHAR NOT NULL , "description" TEXT NOT NULL , "prix" FLOAT NOT NULL DEFAULT 0.00, "auteur" VARCHAR, "updated_at" DATETIME NOT NULL  DEFAULT CURRENT_TIMESTAMP, "created_at" DATETIME NOT NULL  DEFAULT CURRENT_TIMESTAMP);
-chmod 777 -R data/
+CREATE TABLE IF NOT EXISTS `bonplan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titre` varchar(50) NOT NULL,
+  `date` date DEFAULT NULL,
+  `lieu` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `prix` decimal(6,2) unsigned NOT NULL DEFAULT '0.00',
+  `auteur` varchar(50) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+Create a config repository in root directory.
+Edit a config.php file with options needed
