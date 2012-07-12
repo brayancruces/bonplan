@@ -38,4 +38,6 @@ CREATE TABLE IF NOT EXISTS `bonplan` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 Create a config repository in root directory.
-Edit a config.php file with options needed
+Copy and paste the dev.yml.sample in config/
+Edit and rename it into your_env.yml
+Thanks to Igorw's config provider, you can use .json format
